@@ -1,10 +1,18 @@
+import React from 'react';
+import Header from './Components/Header';
+import HeaderTwo from './Components/HeaderTwo';
+import ProductList from './Components/ProductList';
+import Footer from './Components/Footer';
 
-function App() {
-  return (
-    <div className="App">
-
-    </div>
-  );
-}
+const App = () => (
+  <>
+    <Header />
+    <HeaderTwo />
+    <main>
+      <ProductList />
+    </main>
+    <Footer />
+  </>
+);
 
 export default App;
