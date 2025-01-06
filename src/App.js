@@ -1,25 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './Components/Header';
 import ProductList from './Components/ProductList';
 import Cart from './Components/Cart';
 import Footer from './Components/Footer';
+import About from './Pages/About';
 
-const App = () => {
-  const [cartVisible, setCartVisible] = useState(false);
-
-  const handleCartClick = () => setCartVisible(true);
-  const handleCartClose = () => setCartVisible(false);
-
-  return (
-    <>
-      <Header onCartClick={handleCartClick} />
-      <main>
-        <ProductList />
-      </main>
-      <Cart cartVisible={cartVisible} onClose={handleCartClose} />
-      <Footer />
-    </>
-  );
-};
+const App = () => (
+  <Router>
+    <Header />
+    <main>
+      <Routes>
+        <Route path="/" element={<ProductList />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </main>
+    <Cart />
+    <Footer />
+  </Router>
+);
 
 export default App;
